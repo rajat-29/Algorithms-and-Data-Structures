@@ -1,3 +1,5 @@
+/* This algorithm is used for finding prime number ina  given range */
+
 import java.util.Scanner;
 
 class SieveOfEratosthenes
