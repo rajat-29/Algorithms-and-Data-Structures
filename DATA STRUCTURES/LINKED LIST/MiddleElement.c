@@ -25,7 +25,7 @@ void findMiddle(struct node *head)
 
 int main()
 {
-	for(int i=1;i<6;i++)
+	for(int i=1;i<7;i++)
 	{
 		struct node *ptr,*temp;
 		ptr = (struct node*)malloc(sizeof(struct node));
