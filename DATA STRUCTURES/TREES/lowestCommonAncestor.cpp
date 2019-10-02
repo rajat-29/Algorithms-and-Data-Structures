@@ -1,10 +1,10 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<queue>
+#include<iostream>
+using namespace std; 
+
 struct tree
 {
-	struct tree *left,*right;
 	int data;
+	struct tree *left = NULL,*right = NULL;
 };
 
 void printTree(struct tree *head)
@@ -12,21 +12,26 @@ void printTree(struct tree *head)
 	if(head != NULL)
 	{
 		printTree(head->left);
-		printf("%d ", head->data);
+		cout<<head->data<<" ";
 		printTree(head->right);
 	}
 }
 
-int calHeight(struct tree *head)
+struct tree *calAncestor(struct tree *head,int n1,int n2)
 {
 	if(head == NULL)
-		return 0;
-	int l = calHeight(head->left);
-	int r = calHeight(head->right);
-	if(l>r)
-		return ++l;
-	else
-		return ++r;
+		return NULL;
+
+	if(head->data == n1 || head->data == n2)
+		return head;
+
+	struct tree *lRoot = calAncestor(head->left,n1,n2);
+	struct tree *rRoot = calAncestor(head->right,n1,n2);
+
+	if(lRoot && rRoot)
+		return head;
+
+	return (lRoot != NULL)? lRoot : rRoot;
 }
 
 struct tree *insert(struct tree *head,int data)
@@ -38,16 +43,17 @@ struct tree *insert(struct tree *head,int data)
 		temp->left = temp->right = NULL;
 		return temp;
 	}
-
 	if(data < head->data)
 		head->left = insert(head->left,data);
 	else if(data > head->data)
 		head->right = insert(head->right,data);
+
+	return head;
 }
 
 int main()
 {
-	struct tree *head=NULL;
+	struct tree *head = NULL;
 	head = insert(head,50);
 	insert(head,25);
 	insert(head,100);
@@ -63,7 +69,7 @@ int main()
 	insert(head,18);
 	insert(head,3);
 	insert(head,1);
+	cout<<"Normal Tree Print\n";
 	printTree(head);
-	printf("\n");
-	printf("Height of the tree is : %d\n", calHeight(head));
+	cout<<"\n Lowest Common Ancestor : "<<calAncestor(head,18,22)->data;
 }
