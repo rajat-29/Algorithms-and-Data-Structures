@@ -56,7 +56,7 @@ int main()
 			ptr->next = NULL;
 		}
 	}
-	nthNodeFromLast(head,4);
+	nthNodeFromLast(head,1);
 
 	struct node *temp = head;
 	while(temp!=NULL)
