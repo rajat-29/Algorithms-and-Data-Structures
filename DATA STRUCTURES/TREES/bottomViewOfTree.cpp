@@ -37,12 +37,12 @@ struct tree *insert(struct tree *head,int data)
 	return head;
 }
 
-void getVerticalOrder(struct tree *head,int height,map< int,vector<int> > &m)
+void getVerticalOrder(struct tree *head,int height,map<int,int> &m)
 {
 	if(head == NULL)
 		return;
 
-	m[height].push_back(head->data);
+	m[height] = head->data;
 
 	getVerticalOrder(head->left,height-1,m);
 	getVerticalOrder(head->right,height+1,m);
@@ -50,15 +50,14 @@ void getVerticalOrder(struct tree *head,int height,map< int,vector<int> > &m)
 
 void printBottomView(struct tree *head)
 {
-	map< int,vector<int> > m;
+	map<int,int> m;
 	int height = 0;
 	getVerticalOrder(head,height,m);
 
-	map< int,vector<int> > :: iterator it;
+	map<int,int> :: iterator it;
 	for(it = m.begin();it != m.end();it++)
 	{
-		int s = it->second.size();
-		cout<<it->second[s-1]<<" ";
+		cout<<it->second<<" ";
 	}
 }
 
