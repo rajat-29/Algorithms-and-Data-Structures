@@ -21,7 +21,7 @@ string findPrefix(string arr[],int n)
 
 int main()
 {
-	string arr[] = {"geeks", "geek", "geezer", "geeksgeeksforgeekzs"};
+	string arr[] = {"rajat", "raj", "rajatgupta", "rajatguptais"};
 	int n = sizeof(arr)/sizeof(arr[0]);
 	cout<<findPrefix(arr,n)<<"\n";
 }

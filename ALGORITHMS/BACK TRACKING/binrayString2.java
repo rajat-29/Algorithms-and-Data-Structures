@@ -38,7 +38,7 @@ class binrayString2
 		System.out.println("Enter No till u want Binary String : ");
 		int n = obj.nextInt();
 		int arr[] = new int[n];
-		System.out.println("Enter Bit no which u wan to keep 1 from left : ");
+		System.out.println("Enter Bit no which u want to keep 1 from left : ");
 		int bit = obj.nextInt();
 		
 		calculateBinaryString(0,n,arr,bit);

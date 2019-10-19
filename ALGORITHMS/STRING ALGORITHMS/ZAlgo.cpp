@@ -34,8 +34,8 @@ void calZ(string concat,int Z[])
 
 int main()
 {
-	string text = "rajatisrajat"; 
-    string pattern = "raj"; 
+	string text = "geeksforgeeks"; 
+    string pattern = "geek"; 
     searchIndex(text, pattern); 
     return 0; 
 }
