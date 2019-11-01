@@ -48,7 +48,7 @@ int areSametree(struct tree* t1, struct tree* t2)
     else if(t1==NULL && t2!=NULL)
         return 0;
 
-  if(t1->data==t2->data && areSametree(t1->right,t2->right) && areSametree(t1->left,t2->left))
+  if(t1->data==t2->data && areSametree(t1->left,t2->left) && areSametree(t1->right,t2->right))
     return 1;
   else
     return 0;
